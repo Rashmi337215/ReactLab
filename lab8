@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 import "./index.css";
-
 export default function App() {
   const [tasks, set] = useState([]);
   const [filter, setF] = useState("all");
@@ -181,4 +180,3 @@ li:hover {
   color: gray;
   background: #e0e0e0;
 }
-
