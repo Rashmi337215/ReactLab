@@ -1,121 +1,68 @@
 import React from 'react';
-import {BrowserRouter,Routes,Route,NavLink} from 'react-router-dom';
+import {Routes,Route,NavLink} from 'react-router-dom';
 import Home from './Home.jsx';
 import About from './About.jsx';
 import Contact from './Contact.jsx';
-
-
 function App() {
-  const linkStyle=({isActive})=>({
+  const LinkStyle =({isActive})=>({
     margin:'0 10px',
     textDecoration:'none',
-    color:isActive?'blue':'black',
+    color:isActive?'blue':'grey',
     fontWeight:isActive?'bold':'normal'
   });
-  return (
-    <BrowserRouter>
+  return(
     <div>
-      <nav>
-        <NavLink to="/" style={linkStyle}>Home</NavLink>
-        <NavLink to="/about" style={linkStyle}>About</NavLink>
-        <NavLink to="/contact" style={linkStyle}>Contact</NavLink>
-      </nav>
+      <nav style={{
+        display:'flex',
+        justifyContent:'center',
+        gap:'20px'
+      }}> 
+      <NavLink to ="/" style={LinkStyle} end>Home</NavLink>
+      <NavLink to ="/about" style={LinkStyle}>About</NavLink>
+      <NavLink to="/contact" style={LinkStyle}>Contact</NavLink>
+</nav>
       <hr/>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>}/>
-        <Route path="/contact" element={<Contact/>}/>
+       <Route path="/contact" element={<Contact/>}/>
       </Routes>
-      
     </div>
-    </BrowserRouter>
   );
-        
 
-}
-
-export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
+  export default App;
 
 
 
 
 
 import React from 'react';
-function About () {
-    return<h2>About Page</h2>;
-}
-export default About;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom';
 import './index.css'
 import App from './App.jsx'
-import {BrowserRouter} from 'react-router-dom';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const root=ReactDOM.createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
     <App />
-  </StrictMode>,
-)
+  </BrowserRouter>,
+);
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import React from 'react';
+function Home()
+{
+    return (
+        <div>
+    <h2>Home Page</h2>
+<p>Welcome to our website!</p>
+</div>
+    );
+}
+export default Home;
 
 
 
@@ -123,8 +70,14 @@ createRoot(document.getElementById('root')).render(
 
 
 import React from 'react';
-function Contact(){
-    return <h2>Contact Page</h2>;
+function Contact()
+{
+    return (
+        <div>
+    <h2>Contact Page</h2>
+<p>Email: example@gmail.com</p>
+</div>
+);
 }
 export default Contact;
 
@@ -135,27 +88,14 @@ export default Contact;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from 'react';
-function Home(){
-    return <h2>Home Page</h2>;
+function About()
+{
+    return (
+        <div>
+    <h2>About Page</h2>
+ <p>We are a company that provides quality services.</p>
+ </div>);
+      
 }
-export default Home;
+export default About;
