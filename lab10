@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import  './App.css';
 const DataFetcher=() => {
   const [data,setData]=useState([]) , [q,setQ]= useState(''),[err,setErr]=useState(null),[load, setLoad]=useState(false);
   const fetchData=async() => {
@@ -22,7 +23,13 @@ const DataFetcher=() => {
       <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search..."/>
       {load?<div>Loading...</div>:(
         <table>
-          <thread><tr><th>Name</th><th>Email</th><th>City</th></tr></thread>
+          <thead>
+            <tr >
+              <th>Name </th>
+          <th>Email </th>
+          <th>City </th>
+          </tr >
+          </thead>
           <tbody>
             {filtered.length? filtered.map(({id,name,email,address})=>(
               <tr key={id}><td>{name}</td><td>{email}</td><td>{address.city}</td></tr>
@@ -38,6 +45,11 @@ const DataFetcher=() => {
   );
 };
 export default DataFetcher;
+
+
+
+
+
 
 
 
@@ -114,4 +126,25 @@ table td{
 
 
 
+
+
+
+
+
+
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
 import DataFetcher from './App';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+
+
+
