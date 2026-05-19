@@ -38,6 +38,10 @@ onMouseLeave={()=> setBg (initialBg)}
     );
   }
 
+  
+
+
+
 
 
 
@@ -71,4 +75,19 @@ onMouseLeave={()=> setBg (initialBg)}
   height: 100vh;             
 }
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
